@@ -3,7 +3,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #28AE3D;">
         <div class="container">
-            <a class="navbar-brand" href="/"><img src="img/athifah-Render.png" alt="logo-athifah-mete-kendari" width="164px" height="81px"></a>
+            <a class="navbar-brand" href="/"><img src="{{ asset('img/athifah-Render.png') }}" alt="logo-athifah-mete-kendari" width="164px" height="81px"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>

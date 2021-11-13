@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\ProdukModel;
+use App\Models\produk_jualan;
 
 
 class ProdukController extends Controller
@@ -12,7 +12,7 @@ class ProdukController extends Controller
         
         return view('pages\semua-produk', [
             "title" => "Semua Produk",
-            "products" => ProdukModel::all()
+            "products" => produk_jualan::all()
         ]);
     }
 
@@ -20,7 +20,7 @@ class ProdukController extends Controller
 
         return view('pages\detail-produk', [
             "title" => "Detail Produk",
-            "products" => ProdukModel::find($slug)
+            "products" => produk_jualan::find($slug)
         ]);
     }
 }

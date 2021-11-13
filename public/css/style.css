@@ -9,6 +9,11 @@ a{
     color: black;
 }
 
+ul, li{
+    list-style: none;
+    text-decoration: none;
+}
+
 #bestseller{
     padding-top: 35px;
 }

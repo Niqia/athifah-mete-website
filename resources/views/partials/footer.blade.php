@@ -2,7 +2,7 @@
     <footer>
         <div class="row">
             <div class="col">
-                <a href="#"><img src="img/athifah-Render.png" alt="logo-athifah-mete-kendari" width="164px" height="81px" class="logo"></a>
+                <a href="#"><img src="{{ asset('img/athifah-Render.png') }}" alt="logo-athifah-mete-kendari" width="164px" height="81px" class="logo"></a>
                 <p>Pondok Oleh-Oleh Khas Sulawesi Tenggara</p>
             </div>
             <div class="col">

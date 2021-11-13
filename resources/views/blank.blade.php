@@ -1,0 +1,1 @@
+<p>Tersedia dalam 5 varian rasa : Rasa original/asin, rasa manis, rasa gula aren dan rasa bawang.</p><p>Ukuran lain yang tersedia dan harga masing-masing:</p><ul><li>- 150gr Rp 30.000,-</li><li>- 350gr RP 70.000,-</li><li>- 500gr Rp 95.000,-</li><ul>

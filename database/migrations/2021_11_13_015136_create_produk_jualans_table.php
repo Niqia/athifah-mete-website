@@ -19,9 +19,9 @@ class CreateProdukJualansTable extends Migration
             $table->string('nama_produk');
             
             $table->text('excerpt');
+            $table->string('ukuran')->nullable();
             $table->string('harga');
-            $table->string('ukuran')->nullabe();
-            $table->text('deskripsi')->nullabe();
+            $table->text('deskripsi')->nullable();
             $table->timestamp('posted_at')->nullable();
             $table->timestamps();
         });

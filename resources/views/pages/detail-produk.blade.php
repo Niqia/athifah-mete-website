@@ -8,14 +8,14 @@
                 <div class="row">
                     <!-- Start Kolom Kanan -->
                     <div class="col-sm-6 align-self-center">
-                        <img src="img/Comet 100gr .jpg" alt="" class="big-img img-fluid">
+                        <img src="{{ asset('img/Comet 100gr .jpg') }}" alt="" class="big-img img-fluid">
                     </div>
                     <!-- End Kolom Kanan -->
 
                     <!-- Start Kolom Kiri -->
                     <div class="col-sm-6 align-self-center">
                        
-                            <h5 class="col-sm-6" style="font-size: 40px;">{{$products["nama-produk"]}} {{$products["ukuran"]}}</h5>
+                            <h5 class="col-sm-6" style="font-size: 40px;">{{$products["nama_produk"]}} {{$products["ukuran"]}}</h5>
                             <small>By Athifah Mete Kendari</small>
                                 
                                 <div class="d-flex">
@@ -33,7 +33,7 @@
                                 <!-- start harga produk -->
                                     
                                             <div class="harga d-flex" style="font-size: 35px; font-family: 'Calistoga', cursive; "> 
-                                                <span>Rp {{ $products["harga-produk"] }},-</span>
+                                                <span>Rp {{ $products->harga }},-</span>
                                             </div>
                                         
                                 <!-- end harga produk -->
@@ -43,17 +43,10 @@
                             <!-- Start Deskripsi Produk -->
                             <div class="deskripsi-produk">
                                 <h4>Deskripsi Produk:</h4>
-                                <p>{{ $products["deskripsi-produk"] }}</p>
+                                {!! $products->deskripsi !!}
                             </div>
                             <!-- End Deskripsi Produk -->
 
-                            <!-- Start Tombol kembali -->
-                                <div class="form-row pt-4 font-size-16">
-                                    <div class="col">
-                                        <a href="/semua-produk" class="btn btn-warning form-control">Kembali Ke semua Produk</a>
-                                    </div>
-                                </div>
-                            <!-- End Tombol kembali -->
                             <!-- Start Tombol Pesan Sekarang -->
                                 <div class="form-row pt-4 font-size-16">
                                     <div class="col">
@@ -61,6 +54,19 @@
                                     </div>
                                 </div>
                             <!-- End Tombol Pesan Sekarang -->
+
+                            <!-- Start Tombol kembali -->
+                            <div class="form-row pt-4 font-size-16">
+                                    <div class="col">
+                                        <a href="/semua-produk" class="btn">
+                                            
+                                            <span><i class="fa-solid fa-arrow-left"></i></span>
+                                            
+                                            Kembali Ke semua Produk
+                                        </a>
+                                    </div>
+                                </div>
+                            <!-- End Tombol kembali -->
                        
                     </div>
                     <!-- End Kolom Kiri -->
