@@ -39,7 +39,7 @@
                 <div class="socials-icon">
                     <a href="https://api.whatsapp.com/send?phone=6285256107272"><i class="fab fa-whatsapp"></i></a>
                     <a href="https://www.instagram.com/athifah_oleh2kdi/"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.facebook.com/athifahmete.oleholeh"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.facebook.com/AthifahOleh2Kendari/"><i class="fab fa-facebook"></i></a>
                     <a href="https://www.youtube.com/channel/UCXjzYbCCfq5Bvedw9szSybg"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>

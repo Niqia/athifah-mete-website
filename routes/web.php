@@ -1,6 +1,12 @@
 <?php
 
+
 use Illuminate\Support\Facades\Route;
+use Illuminate\Database\Eloquent\Model;
+use App\Models\produkModel;
+use App\Http\Controllers\ProdukController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -31,22 +37,12 @@ Route::get('/cara-memesan', function () {
     ]);
 });
 
-// $produk =[
-//     [
-//         "nama-produk" => "Cokelat Mete 100 gr",
-//         "harga-produk" => "17.000",
-//         "deskripsi-produk" => 
+// baris dibawah menyatakan bahwa fungsi buat route ini 
+// diambil dari file ProdukController.php dengan memanggil 
+// salah satu method yang ada di file tersebut
+Route::get('/semua-produk', [ProdukController::class, 'index']);
 
-
-
-//     ]
-// ]
-
-Route::get('/produk', function () {
-    return view('pages\produk', [
-        "title" => "Detail Produk"
-    ]);
-});
+Route::get('/detail-produk/{slug}', [ProdukController::class, 'show']);
 
 Route::get('/makanan-khas-sultra', function () {
     return view('pages\makanan-sultra', [
