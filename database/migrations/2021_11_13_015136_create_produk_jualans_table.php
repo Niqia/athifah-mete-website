@@ -16,7 +16,7 @@ class CreateProdukJualansTable extends Migration
         Schema::create('produk_jualans', function (Blueprint $table) {
             $table->id();
             
-            $table->string('nama-produk');
+            $table->string('nama_produk');
             
             $table->text('excerpt');
             $table->string('harga');
