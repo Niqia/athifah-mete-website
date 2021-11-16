@@ -3,8 +3,8 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\produkModel;
 use App\Http\Controllers\ProdukController;
+use App\Models\Kategori;
 
 
 
@@ -42,22 +42,39 @@ Route::get('/cara-memesan', function () {
 // salah satu method yang ada di file tersebut
 Route::get('/semua-produk', [ProdukController::class, 'index']);
 
-Route::get('/detail-produk/{slug}', [ProdukController::class, 'show']);
+Route::get('/detail-produk/{product:slug}', [ProdukController::class, 'show']);
 
-Route::get('/makanan-khas-sultra', function () {
-    return view('pages\makanan-sultra', [
-        "title" => "Makanan Khas Sultra"
-    ]);
-});
+// Route::get('/makanan-khas-sultra', function () {
+//     return view('pages\makanan-sultra', [
+//         "title" => "Makanan Khas Sultra"
+//     ]);
+// });
 
-Route::get('/kerajinan-khas-sultra', function () {
-    return view('pages\kerajinan-sultra', [
-        "title" => "Kerajinan Khas Sultra"
-    ]);
-});
+// Route::get('/kerajinan-khas-sultra', function () {
+//     return view('pages\kerajinan-sultra', [
+//         "title" => "Kerajinan Khas Sultra"
+//     ]);
+// });
 
 Route::get('/kontak-kami', function () {
     return view('pages\kontak-kami', [
         "title" => "Kontak Kami"
     ]);
 });
+
+Route::get('/kategori', function(){
+    return view('pages\pilihan-kategori', [
+        'title' => 'Kategori Produk',
+        'pilihanKategori'=> Kategori::all()
+    ]);
+});
+
+Route::get('/{kategori:slug}', function(Kategori $kategori){
+    return view('pages\kategori', [
+        'title' => $kategori->nama_kategori,
+        'products'=> $kategori->products,
+        'kategori'=> $kategori->nama_kategori
+    ]);
+});
+
+

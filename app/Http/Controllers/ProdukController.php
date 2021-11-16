@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\produk_jualan;
+use App\Models\Kategori;
+
 
 
 class ProdukController extends Controller
@@ -16,11 +18,11 @@ class ProdukController extends Controller
         ]);
     }
 
-    public function show($slug){
+    public function show(produk_jualan $product){
 
         return view('pages\detail-produk', [
             "title" => "Detail Produk",
-            "products" => produk_jualan::find($slug)
+            "products" => $product
         ]);
     }
 }

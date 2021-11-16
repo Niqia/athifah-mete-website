@@ -15,9 +15,9 @@ class CreateProdukJualansTable extends Migration
     {
         Schema::create('produk_jualans', function (Blueprint $table) {
             $table->id();
-            
+            $table->foreignId('kategori_id');
             $table->string('nama_produk');
-            
+            $table->string('slug')->unique();
             $table->text('excerpt');
             $table->string('ukuran')->nullable();
             $table->string('harga');

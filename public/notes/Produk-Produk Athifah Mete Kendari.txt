@@ -3,11 +3,13 @@ Produk-Produk Athifah Mete Kendari
 Makanan Khas Sulawesi Tenggara
 
 	1. Mete Goreng
-		Rasa: Tersedia dalam 5 varian rasa : Rasa original/asin, rasa manis, rasa gula aren dan rasa bawang. 
-		Ukuran dan Harga: 
-			- 150 gr Rp 30.000,-
-			- 350 gr RP 70.000,-
-			- 500 gr Rp 95.000,-
+		<p>Tersedia dalam 5 varian rasa : Rasa original/asin, rasa manis, rasa gula aren dan rasa bawang.</p>
+		<p>Ukuran lain yang tersedia dan harga masing-masing:</p>
+			<ul>
+			<li>- 150 gr Rp 30.000,-</li>
+			<li>- 350 gr RP 70.000,-</li>
+			<li>- 500 gr Rp 95.000,-</li>
+			<ul>
 	2. Keripik Mete
 		Rasa: Original
 		Ukuran dan Harga: 
@@ -218,9 +220,10 @@ Makanan Khas Sulawesi Tenggara
 	47. Pia Mete
 		Rasa: Original
 		Ukuran dan Harga: 
-			-  gr Rp 14.000,-
-			-  gr Rp 33.000,-
-			-  gr Rp 39.000,-
+			- 200 gr Rp 14.000,-
+			- dus gr Rp 33.000,-
+			- toples gr Rp 39.000,-
+		Deskripsi: Komposisi : Minyak nabati,Kacang Hijau, Telur, Terigu.
 	48. Kue Brownies Mete
 		Rasa: Original
 		Ukuran dan Harga: 

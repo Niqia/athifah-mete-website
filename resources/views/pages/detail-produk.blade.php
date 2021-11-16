@@ -15,8 +15,10 @@
                     <!-- Start Kolom Kiri -->
                     <div class="col-sm-6 align-self-center">
                        
-                            <h5 class="col-sm-6" style="font-size: 40px;">{{$products["nama_produk"]}} {{$products["ukuran"]}}</h5>
+                            <h5 class="col-sm-6" style="font-size: 40px;">{{$products->nama_produk}} {{$products->ukuran}}</h5>
                             <small>By Athifah Mete Kendari</small>
+                            <br>
+                            <small>Kategori: <a href="/{{$products->kategori->slug}}">{{ $products->Kategori->nama_kategori}}</a></small>
                                 
                                 <div class="d-flex">
                                     <div class="rating text-warning font-size-12">
