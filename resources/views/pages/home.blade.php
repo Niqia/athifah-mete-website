@@ -30,6 +30,37 @@
         </div>
     <!-- Start Bootstrap Carousel -->
 
+    <!-- Start Bestseller -->
+        <section id="bestseller" class="py-3 mb-5 m-4">
+            <div class="container py-5">
+                <h3 class="text-center m-3" style="font-family: 'Calistoga', cursive; font: size 28px;">Bestseller Kami</h3>
+
+                <!-- Start Bestseller Owl Carousel -->
+                    <div class="owl-carousel">
+                        @foreach($bestseller_products as $product)
+                            <div class="item py-2">
+                                <div class="product" style="width: 210px;">
+                                    <div class="d-flex justify-content-center align-items-center mb-3">
+                                        <a href="/detail-produk/{{$product->slug}}"><img src="{{ asset('img/athifah (1).jpg') }}" alt="" class="c-img img-fluid float-md-end"></a>
+                                    </div>
+                                    <div class="desc" style="padding-left: 20px; padding-bottom: 1em; ">
+                                        <div class="harga d-flex mb-3">
+                                            <span>Rp {{$product->harga}},-</span>
+                                        </div>
+                                            <h4 class="nama-produk"><a href="/detail-produk/{{$product->slug}}" style="white-space: initial;">{{$product->nama_produk}} {{$product->ukuran}}</a></h4>
+                                            <!-- <a href="/detail-produk/{{$product->slug}}" class="btn" style="background-color: #f8ba8c; color:#00634b; white-space: initial;">Lihat Selengkapnya</a> -->
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                <!-- End Bestseller Owl Carousel -->
+
+            </div>
+        </section>
+    <!-- End Bestseller -->
+
     <!-- Start Fun Fact -->
         <section id="dekorasi" class="p-5 m-5">
                 <div class="container">
@@ -40,169 +71,84 @@
                             <p style="font-family:'Cabin', sans-serif;">Kacang mete mengandung asam lemak tak jenuh tunggal dan ganda. Kandungan keduanya dapat membantu Anda menurunkan kadar kolesterol jahat (LDL) dan trigliserida dalam darah. Kadar kolesterol jahat dan trigliserida yang relatif rendah dapat mengurangi risiko penyakit kardiovaskuler, stroke, dan serangan jantung.</p>
                             <br>
                             <div class="d-grid gap-2 d-md-block">
-                                <button class="btn" type="button" style="background-color: #fff; color:#28AE3D;">Lihat olahan kreatif mete</button>
+                                <a href="#bestseller" class="btn" style="background-color: #fff; color:#28AE3D;">Lihat olahan kreatif mete</a>
                             </div> 
                         </div>
-                        <div class="col-md-6">
-                            <img src="img/kacang mete.jpg" alt="" style="width: 578; height:526" class="img-fluid">
+                        <div class="col-md-6" style="display: flex; justify-content:center;">
+                            <img src="img/kacang mete.jpg" alt="" style="width: 578; height:526" class="img-fluid float-md-end">
                         </div>
                     </div>
                 </div>
             </section>
     <!-- End Fun Fact -->
 
-    <!-- Start Bestseller -->
-        <section id="bestseller" class="py-3 mb-5 m-4">
-            <div class="container py-5">
-                <h3 class="text-center m-3" style="font-family: 'Calistoga', cursive; font: size 28px;">Bestseller Kami</h3>
-
-                <!-- Start Bestseller Owl Carousel -->
-                    <div class="owl-carousel">
-                        <div class="item py-2">
-                            <div class="product" style="width: 210px;">
-                                <div class="d-flex justify-content-center align-items-center mb-4">
-                                    <a href="#"><img src="img/songket tolaki modern.jpg" alt="" class="c-img img-fluid"></a>
-                                </div>
-                                <div style="padding: 24px;">
-                                    <div class="harga d-flex mb-4">
-                                        <span>Rp 240.000,-</span>
-                                    </div>
-                                    <h6 class="nama-produk">Kain Songket Tolaki Modern</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item py-2">
-                            <div class="product" style="width: 210px;">
-                                <div class="d-flex justify-content-center align-items-center mb-4">
-                                    <a href="#"><img src="img/songket tolaki.jpg" alt="" class="c-img"></a>
-                                </div>
-                                <div style="padding: 24px;">
-                                    <div class="harga d-flex mb-4">
-                                        <span>Rp 250.000,-</span>
-                                    </div>
-                                    <h6 class="nama-produk">Kain Songket Tolaki</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item py-2">
-                            <div class="product" style="width: 210px;">
-                                <div class="d-flex justify-content-center align-items-center mb-4">
-                                    <a href="#"><img src="img/comet.jpg" alt="" class="c-img"></a>
-                                </div>
-                                <div style="padding: 24px;">
-                                    <div class="harga d-flex mb-4">
-                                        <span>Rp 12.000,-</span>
-                                    </div>
-                                    <h6 class="nama-produk">Cokelat Mente</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item py-2">
-                            <div class="product" style="width: 210px;">
-                                <div class="d-flex justify-content-center align-items-center mb-4">
-                                    <a href="#"><img src="img/comet.jpg" alt="" class="c-img"></a>
-                                </div>
-                                <div style="padding: 24px;">
-                                    <div class="harga d-flex mb-4">
-                                        <span>Rp 12.000,-</span>
-                                    </div>
-                                    <h6 class="nama-produk">Cokelat Mente</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item py-2">
-                            <div class="product"style="width: 210px;">
-                                <div class="d-flex justify-content-center align-items-center mb-4">
-                                    <a href="#"><img src="img/comet.jpg" alt="" class="c-img"></a>
-                                </div>
-                                <div style="padding: 24px;">
-                                    <div class="harga d-flex mb-4">
-                                        <span>Rp 12.000,-</span>
-                                    </div>
-                                    <h6 class="nama-produk">Cokelat Mente</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item py-2">
-                            <div class="product" style="width: 210px;">
-                                <div class="d-flex justify-content-center align-items-center mb-4">
-                                    <a href="#"><img src="img/comet.jpg" alt="" class="c-img"></a>
-                                </div>
-                                <div style="padding: 24px;">
-                                    <div class="harga d-flex mb-4">
-                                        <span>Rp 12.000,-</span>
-                                    </div>
-                                    <h6 class="nama-produk">Cokelat Mente</h6>
-                                </div>
-                            </div>
-                        </div>
-                        
-
-                    </div>
-                <!-- End Bestseller Owl Carousel -->
-
-            </div>
-        </section>
-    <!-- End Bestseller -->
-
     <!-- Start Produk Terbaru -->
-        <section id="detail-produk" class="py-3 mb-5 m-4">
-            <div class="container">
-                <h3 class="text-center m-3" style="font-family: 'Calistoga', cursive; font: size 28px;">Produk Terbaru</h3>
-                <div class="row">
-                    <!-- Start Kolom Kanan -->
-                    <div class="col-sm-6 align-self-center">
-                        <img src="img/Comet 100gr .jpg" alt="" class="big-img img-fluid">
-                    </div>
-                    <!-- End Kolom Kanan -->
 
-                    <!-- Start Kolom Kiri -->
-                    <div class="col-sm-6 align-self-center">
-                        <h5 class="col-sm-6" style="font-size: 40px;">Cokelat Mete 100gr</h5>
-                        <small>By Athifah Mete Kendari</small>
+        <section id="produk-terbaru" class="py-3 mb-5 m-4">
+                <div class="container">
+                    <h3 class="text-center m-3" style="font-family: 'Calistoga', cursive; font: size 28px;">Produk Terbaru</h3>
+                    <div class="row">
+                        @if ($products->count())
+                            <!-- Start Kolom Kanan -->
+                            <div class="col-sm-6 align-self-center">
+                                <img src="{{ asset('img/athifah (1).jpg') }}" alt="" class="big-img img-fluid">
+                            </div>
+                            <!-- End Kolom Kanan -->
+
+                            <!-- Start Kolom Kiri -->
                             
-                            <div class="d-flex">
-                                <div class="rating text-warning font-size-12">
-                                    <span><i class="fa-solid fa-star"></i></span>
-                                    <span><i class="fa-solid fa-star"></i></span>
-                                    <span><i class="fa-solid fa-star"></i></span>
-                                    <span><i class="fa-solid fa-star"></i></span>
-                                    <span><i class="fa-solid fa-star"></i></span>
+                            <div class="col-sm-6 align-self-center">
+                                <h5 class="col-sm-6" style="font-size: 40px;">{{ $products[0]->nama_produk}}</h5>
+                                <small>By: <a href="/semua-produk?user={{$products[0]->user->name}}">{{$products[0]->user->name}}</a></small>
+                                <br>
+                                <small>Kategori: <a href="/semua-produk?kategori={{$products[0]->kategori->slug}}">{{ $products[0]->Kategori->nama_kategori}}</a></small>
                                     
-                                </div>
-                                <p>&nbsp;&nbsp;(5)</p>
-                            </div>
-
-                            <!-- start harga produk -->
-                                
-                                        <div class="harga d-flex" style="font-size: 35px;"> 
-                                            <span>Rp 17.000,-</span>
+                                    <div class="d-flex">
+                                        <div class="rating text-warning font-size-12">
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            
                                         </div>
-                                    
-                            <!-- end harga produk -->
+                                        <p>&nbsp;&nbsp;(5)</p>
+                                    </div>
 
-                        <hr class="mt-0 mb-5">
+                                    <!-- start harga produk -->
+                                        
+                                                <div class="harga d-flex" style="font-size: 35px;"> 
+                                                    <span>Rp {{ $products[0]->harga }},-</span>
+                                                </div>
+                                            
+                                    <!-- end harga produk -->
 
-                        <!-- Start Deskripsi Produk -->
-                        <div class="deskripsi-produk">
-                            <h4>Deskripsi Produk:</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse tempor, ante sit amet rutrum tempor, ante augue posuere ex, eget pharetra risus lacus non arcu. Proin id enim gravida felis pretium semper. Curabitur molestie malesuada magna, et facilisis erat maximus at. Duis metus arcu, aliquam at ex non, ultrices placerat enim. Donec bibendum luctus ante, sit amet pulvinar enim tristique eget. Suspendisse et laoreet ipsum. Pellentesque interdum quis ipsum quis volutpat. Vestibulum rhoncus eros nec dignissim posuere. Duis nec metus orci. Mauris sagittis, velit in congue congue, felis mauris mollis metus, eget facilisis lectus erat consequat ligula. Curabitur rutrum venenatis rutrum.</p>
-                        </div>
-                        <!-- End Deskripsi Produk -->
+                                <hr class="mt-0 mb-5">
 
-                        <!-- Start Tombol Pesan Sekarang -->
-                            <div class="form-row pt-4 font-size-16">
-                                <div class="col">
-                                    <button type="submit" class="btn btn-warning form-control">Pesan Sekarang</button>
+                                <!-- Start Deskripsi Produk -->
+                                <div class="deskripsi-produk">
+                                    <h4>Deskripsi Produk:</h4>
+                                        {!! $products[0]->deskripsi !!}
                                 </div>
-                            </div>
-                        <!-- End Tombol Pesan Sekarang -->
+                                <!-- End Deskripsi Produk -->
 
+                                <!-- Start Tombol Pesan Sekarang -->
+                                    <div class="form-row pt-4 font-size-16">
+                                        <div class="col">
+                                            <a href="/cara-memesan" class="btn btn-warning form-control">Pesan Sekarang</a>
+                                        </div>
+                                    </div>
+                                <!-- End Tombol Pesan Sekarang -->
+
+                            </div>
+                            <!-- End Kolom Kiri -->
+                        @else
+                            <p>Tidak Ada Produk Terbaru.</p>
+                        @endif
                     </div>
-                    <!-- End Kolom Kiri -->
                 </div>
-            </div>
-        </section>
+            </section>
+
     <!-- End Produk Terbaru -->
 
     <!-- Start Produk Unggulan -->
@@ -216,68 +162,29 @@
                 </div>
 
                 <div class="grid">
-                    <div class="grid-item makanan border">
-                        <div class="item py-2" style="width: 200px;">
-                            <!-- <div class="product"> -->
-                                <div class="d-flex justify-content-center align-items-center mb-4">
-                                    <a href="#"><img src="img/comet.jpg" alt="" class="c-img"></a>
-                                </div>
-                                <div style="padding: 24px;">
-                                    <div class="harga d-flex">
-                                        <span>Rp 12.000,-</span>
+                    @foreach($featured_products as $product )
+                        <div class="grid-item border {{ ($product['kategori_id'] === 1) ? 'makanan' : 'kerajinan' }}">
+                            <div class="item py-2" style="width: 210px;">
+                                <!-- <div class="product"> -->
+                                    <div class="d-flex justify-content-center align-items-center mb-4">
+                                        <a href="/detail-produk/{{$product->slug}}"><img src="{{ asset('img/athifah (1).jpg') }}" alt="" class="c-img"></a>
                                     </div>
-                                    <h6 class="nama-produk">Cokelat Mente</h6>
-                                </div>
-                            <!-- </div> -->
+                                    <div class="desc" style="padding-left: 20px;">
+                                        <div class="harga d-flex mb-4">
+                                            <span>Rp {{$product->harga}},-</span>
+                                        </div>
+                                            <h4 class="nama-produk"><a href="/detail-produk/{{$product->slug}}">{{$product->nama_produk}} {{$product->ukuran}}</a></h4>
+                                    </div>
+                                <!-- </div> -->
+                            </div>
                         </div>
-                    </div>
-                    <div class="grid-item kerajinan border">
-                        <div class="item py-2" style="width: 200px;">
-                            <!-- <div class="product"> -->
-                                <div class="d-flex justify-content-center align-items-center mb-4">
-                                    <a href="#"><img src="img/songket tolaki modern.jpg" alt="" class="c-img"></a>
-                                </div>
-                                <div style="padding: 24px;">
-                                    <div class="harga d-flex">
-                                        <span>Rp 240.000,-</span>
-                                    </div>
-                                    <div>
-                                        <h6 class="nama-produk">Kain Songket Tolaki Modern</h6>
-                                    </div>
-                                </div>
-                            <!-- </div> -->
-                        </div>
-                    </div>
-                    <div class="grid-item kerajinan border">
-                        <div class="item py-2" style="width: 200px;">
-                            <!-- <div class="product"> -->
-                                <div class="d-flex justify-content-center align-items-center mb-4">
-                                    <a href="#"><img src="img/songket tolaki.jpg" alt="" class="c-img"></a>
-                                </div>
-                                <div style="padding: 24px;">
-                                    <div class="harga d-flex">
-                                        <span>Rp 250.000,-</span>
-                                    </div>
-                                    <div>
-                                        <h6 class="nama-produk">Kain Songket Tolaki</h6>
-                                    </div>
-                                </div>
-                            <!-- </div> -->
-                        </div>
-                    </div>
+                    @endforeach
+            
                 </div>
 
             </div>
         </section>
     <!-- End Produk Unggulan -->
-
-    
-        
-    
-
-
-
-    
 
 @endsection
 

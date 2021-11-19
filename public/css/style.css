@@ -30,7 +30,11 @@ ul, li{
     font-size: 25px;
 }
 
+.card{
 
+    width: fit-content;
+
+}
 #dekorasi{
     background-color: linear-gradient(to right, #f8ba8c, #f8ba8c);
     
@@ -43,6 +47,8 @@ ul, li{
 .product{
     max-height: 291px;
     max-width: 337px;
+    /* width: 100%; */
+    white-space:nowrap;
     /* border: 1px solid #F8BA8C;
     box-shadow: 4px 4px 2px 1px rgba(206, 191, 191, 0.493); */
     border: 1px solid rgba(128,128,128,.16);
@@ -53,6 +59,7 @@ ul, li{
     max-width: 175px;
     max-height: 130px;
     padding-top: 15px;
+    object-fit: cover;
     /* width: 100%;
     height: 100%; */
 }
@@ -300,3 +307,23 @@ hr{
     height: 300px;
     
 }
+
+/* Start Login Page CSS */
+  
+  
+  .form-signin .form-floating:focus-within {
+    z-index: 2;
+  }
+  
+  .form-signin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  
+  .form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+/* End Login Page CSS */

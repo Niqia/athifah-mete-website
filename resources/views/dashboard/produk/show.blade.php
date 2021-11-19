@@ -1,9 +1,9 @@
-@extends('layouts.main')
+@extends('dashboard.dashboard_layouts.dashboard_main')
 
-@section('halaman')   
+@section('halaman')
 
     <!-- Start Detail Produk -->
-        <section id="detail-produk" class="py-3 mb-5">
+    <section id="detail-produk" class="py-3 mb-5">
             <div class="container">
                 <div class="row">
                     <!-- Start Kolom Kanan -->
@@ -49,26 +49,7 @@
                             </div>
                             <!-- End Deskripsi Produk -->
 
-                            <!-- Start Tombol Pesan Sekarang -->
-                                <div class="form-row pt-4 font-size-16">
-                                    <div class="col">
-                                    <a href="/cara-memesan" class="btn btn-warning form-control">Pesan Sekarang</a>
-                                    </div>
-                                </div>
-                            <!-- End Tombol Pesan Sekarang -->
-
-                            <!-- Start Tombol kembali -->
-                            <div class="form-row pt-4 font-size-16">
-                                    <div class="col">
-                                        <a href="/semua-produk" class="btn">
-                                            
-                                            <span><i class="fa-solid fa-arrow-left"></i></span>
-                                            
-                                            Kembali Ke semua Produk
-                                        </a>
-                                    </div>
-                                </div>
-                            <!-- End Tombol kembali -->
+                
                        
                     </div>
                     <!-- End Kolom Kiri -->

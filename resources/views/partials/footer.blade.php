@@ -20,11 +20,12 @@
                     <div class="underline"><span></span></div>
                 </h3>
                 <ul>
-                    <li><a href="">Home</a></li>
-                    <li><a href="">Tentang Kami</a></li>
-                    <li><a href="">Kerajinan Khas Sultra</a></li>
-                    <li><a href="">Makanan Khas Sultra</a></li>
-                    <li><a href="">Cara Memesan</a></li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/semua-produk">Semua Produk</a></li>
+                    <li><a href="/kategori">Kategori</a></li>
+                    <li><a href="/cara-memesan">Cara Memesan</a></li>
+                    <li><a href="/kontak-kami">Kontak Kami</a></li>
+                    <li><a href="/tentang-athifah-mete-kendari">Tentang Kami</a></li>
                 </ul>
             </div>
             <div class="col">

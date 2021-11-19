@@ -4,7 +4,12 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Database\Eloquent\Model;
 use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\DashboardProdukController;
 use App\Models\Kategori;
+use App\Models\User;
+use App\Models\produk_jualan;
+
 
 
 
@@ -19,11 +24,7 @@ use App\Models\Kategori;
 |
 */
 
-Route::get('/', function () {
-    return view('pages\home', [
-        "title" => "Home"
-    ]);
-});
+Route::get('/', [ProdukController::class, 'home']);
 
 Route::get('/tentang-athifah-mete-kendari', function () {
     return view('pages\tentang-kami', [
@@ -44,21 +45,22 @@ Route::get('/semua-produk', [ProdukController::class, 'index']);
 
 Route::get('/detail-produk/{product:slug}', [ProdukController::class, 'show']);
 
-// Route::get('/makanan-khas-sultra', function () {
-//     return view('pages\makanan-sultra', [
-//         "title" => "Makanan Khas Sultra"
-//     ]);
-// });
+Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
+Route::post('/login', [LoginController::class, 'authenticate']);
+Route::post('/logout', [LoginController::class, 'logout']);
 
-// Route::get('/kerajinan-khas-sultra', function () {
-//     return view('pages\kerajinan-sultra', [
-//         "title" => "Kerajinan Khas Sultra"
-//     ]);
-// });
+Route::get('/dashboard', function () {
+    return view('dashboard\dashboard', [
+        "title" => "Dashboard",
+    ]);
+})->middleware('auth');
+
+
+Route::resource('/dashboard/semua-produk', DashboardProdukController::class)->middleware('auth');
 
 Route::get('/kontak-kami', function () {
     return view('pages\kontak-kami', [
-        "title" => "Kontak Kami"
+        "title" => "Kontak Kami",
     ]);
 });
 
@@ -69,12 +71,24 @@ Route::get('/kategori', function(){
     ]);
 });
 
-Route::get('/{kategori:slug}', function(Kategori $kategori){
-    return view('pages\kategori', [
-        'title' => $kategori->nama_kategori,
+Route::get('/semua-produk?kategori={kategori:slug}', function(Kategori $kategori){
+    return view('pages\semua-produk', [
+        'title' => "Kategori Produk: ".$kategori->nama_kategori,
         'products'=> $kategori->products,
-        'kategori'=> $kategori->nama_kategori
     ]);
 });
+
+Route::get('/posted-by/{user:name}', function(User $user){    
+    return view('pages\semua-produk', [
+        'title' => 'Postingan Dari: '.$user->name,
+        'products'=> $user->products,
+        
+    ]);
+});
+
+
+
+
+
 
 
