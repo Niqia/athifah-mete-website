@@ -10,7 +10,7 @@
         <div class="mb-3 row">
             <label for="nama_produk" class="col-sm-2 col-form-label">Nama Produk</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control @error('nama_produk') is-invalid @enderror" id="nama_produk" name="nama_produk">
+                <input type="text" class="form-control @error('nama_produk') is-invalid @enderror" id="nama_produk" name="nama_produk" required autofocus value="{{old('nama_produk')}}">
                     @error('nama_produk')
                         <div class="invalid-feedback">
                             {{$message}}
@@ -23,7 +23,7 @@
         <div class="mb-3 row">
             <label for="slug" class="col-sm-2 col-form-label">Slug</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" name="slug" readonly>
+                <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" name="slug" readonly required value="{{old('slug')}}"> 
                     @error('slug')
                         <div class="invalid-feedback">
                             {{$message}}
@@ -35,7 +35,7 @@
         <div class="mb-3 row">
             <label for="ukuran" class="col-sm-2 col-form-label">Ukuran</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="ukuran" name="ukuran">
+                <input type="text" class="form-control" id="ukuran" name="ukuran" value="{{old('ukuran')}}">
             </div>
         </div>
 
@@ -44,7 +44,11 @@
             <div class="col-sm-10" >
                 <select class="form-select" name="kategori_id">
                     @foreach ($kategori as $kategori)
-                        <option value="{{$kategori->id}}">{{$kategori->nama_kategori}}</option>
+                        @if(old('kategori_id' == '$kategori->id' ))
+                            <option value="{{$kategori->id}}" selected>{{$kategori->nama_kategori}}</option>
+                        @else
+                            <option value="{{$kategori->id}}">{{$kategori->nama_kategori}}</option>
+                        @endif
                     @endforeach
                 </select>
             </div>
@@ -53,7 +57,7 @@
         <div class="mb-3 row">
             <label for="harga" class="col-sm-2 col-form-label">Harga</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control @error('harga') is-invalid @enderror" id="harga" name="harga">
+                <input type="text" class="form-control @error('harga') is-invalid @enderror" id="harga" name="harga" value="{{old('harga')}}">
                     @error('harga')
                         <div class="invalid-feedback">
                             {{$message}}
@@ -65,7 +69,7 @@
         <div class="mb-3 row">
             <label for="deskripsi" class="col-sm-2 col-form-label">Deskripsi</label>
             <div class="col-sm-10">
-                <input id="deskripsi" type="hidden" name="deskripsi">
+                <input id="deskripsi" type="hidden" name="deskripsi" value="{{old('deskripsi')}}">
                 <trix-editor input="deskripsi"></trix-editor>
             </div>
         </div>

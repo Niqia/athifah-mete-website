@@ -45,7 +45,7 @@ class DashboardProdukController extends Controller
     {
         $validateData = $request->validate([
             'nama_produk' => 'required|max:255',
-            'slug' => 'required|unique:products',
+            'slug' => 'required|unique:produk_jualans',
             'kategori_id' => 'required',
             'harga' => 'required',
         ]);
