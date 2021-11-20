@@ -18,21 +18,21 @@
         <div class="mb-3 row">
             <label for="slug" class="col-sm-2 col-form-label">Slug</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="slug" name="slug" disabled readonly>
+                <input type="text" class="form-control" id="slug" name="slug" readonly>
             </div>
         </div>
         
         <div class="mb-3 row">
             <label for="ukuran" class="col-sm-2 col-form-label">Ukuran</label>
             <div class="col-sm-10">
-                <input type="" class="form-control" id="ukuran">
+                <input type="text" class="form-control" id="ukuran" name="ukuran">
             </div>
         </div>
 
         <div class="mb-3 row">
             <label for="kategori" class="col-sm-2 col-form-label">Kategori</label>
-            <div class="col-sm-10" name="kategori_id">
-                <select class="form-select" aria-label="Default select example">
+            <div class="col-sm-10" >
+                <select class="form-select" name="kategori_id">
                     @foreach ($kategori as $kategori)
                         <option value="{{$kategori->id}}">{{$kategori->nama_kategori}}</option>
                     @endforeach
@@ -44,14 +44,15 @@
         <div class="mb-3 row">
             <label for="harga" class="col-sm-2 col-form-label">Harga</label>
             <div class="col-sm-10">
-                <input type="" class="form-control" id="harga">
+                <input type="text" class="form-control" id="harga" name="harga">
             </div>
         </div>
 
         <div class="mb-3 row">
             <label for="deskripsi" class="col-sm-2 col-form-label">Deskripsi</label>
             <div class="col-sm-10">
-                <textarea class="form-control" placeholder="Deskripsi" id="deskripsi" style="height: 100px"></textarea>
+                <input id="deskripsi" type="hidden" name="deskripsi">
+                <trix-editor input="deskripsi"></trix-editor>
             </div>
         </div>
         <div class="mb-3 row">
@@ -74,6 +75,10 @@
             .then(response => response.json())
             .then(data => slug.value = data.slug)
         });
+
+        document.addEventListener('trix-file-accept', function(e){
+            e.preventDefault();
+        })
 
     </script>
 
