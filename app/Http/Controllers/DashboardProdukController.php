@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\produk_jualan;
+use App\Models\Kategori;
+use App\Models\User;
 use Illuminate\Http\Request;
+use \Cviebrock\EloquentSluggable\Services\SlugService;
 
 class DashboardProdukController extends Controller
 {
@@ -27,7 +30,9 @@ class DashboardProdukController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard\produk\create', [
+            'kategori' => Kategori::all()
+        ]);
     }
 
     /**
@@ -38,7 +43,7 @@ class DashboardProdukController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $request;
     }
 
     /**
@@ -50,9 +55,10 @@ class DashboardProdukController extends Controller
     public function show(produk_jualan $produk_jualan)
     {
         return view('dashboard\produk\show', [
-            'products' => produk_jualan::first(),
+            'products' => $produk_jualan,
         ]);
-        // return produk_jualan::first();
+        
+        // return $produk_jualan;
     }
 
     /**
@@ -87,5 +93,11 @@ class DashboardProdukController extends Controller
     public function destroy(produk_jualan $produk_jualan)
     {
         //
+    }
+
+    public function checkSlug(Request $request)
+    {
+        $slug = SlugService::createSlug(produk_jualan::class, 'slug', $request->nama_produk);
+        return response()->json(['slug' => $slug]);
     }
 }

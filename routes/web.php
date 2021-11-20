@@ -8,7 +8,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardProdukController;
 use App\Models\Kategori;
 use App\Models\User;
-use App\Models\produk_jualan;
+// use App\Models\produk_jualan;
 
 
 
@@ -56,7 +56,9 @@ Route::get('/dashboard', function () {
 })->middleware('auth');
 
 
-Route::resource('/dashboard/semua-produk', DashboardProdukController::class)->middleware('auth');
+Route::get('/dashboard/produk_jualan/checkSlug', [DashboardProdukController::class, 'checkSlug'])->middleware('auth');
+Route::resource('/dashboard/produk_jualan', DashboardProdukController::class)->middleware('auth');
+
 
 Route::get('/kontak-kami', function () {
     return view('pages\kontak-kami', [
@@ -85,6 +87,8 @@ Route::get('/posted-by/{user:name}', function(User $user){
         
     ]);
 });
+
+
 
 
 

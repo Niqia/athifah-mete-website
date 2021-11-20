@@ -6,6 +6,9 @@
     </div>
 
     <div class="table-responsive">
+
+        <a href="/dashboard/produk_jualan/create" class="btn btn-primary mb-4">Tambahkan Produk</a>
+
         <table class="table table-striped table-sm">
           <thead>
             <tr>
@@ -28,7 +31,7 @@
                         <td>Rp {{ $product->harga }},-</td>
                         <!-- <td>{{ $product->deskripsi}}</td> -->
                         <td>
-                            <a href="/dashboard/semua-produk/{{ $product->slug }}" class="badge bg-info"><span data-feather="eye"></span></a>
+                            <a href="/dashboard/produk_jualan/{{$product->slug}}" class="badge bg-info"><span data-feather="eye"></span></a>
                             <a href="" class="badge bg-warning"><span data-feather="edit"></span></a>
                             <a href="" class="badge bg-danger"><span data-feather="x-circle"></span></a>
                         </td>
