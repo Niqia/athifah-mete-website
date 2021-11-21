@@ -9,9 +9,14 @@
                     <div class=" d-flex bd-highlight mb-3">
                         
                         <a href="/dashboard/produk_jualan" class="btn bg-success me-auto p-2 bd-highlight"><span data-feather="arrow-left"></span>Kembali</a>
-                        <a href="" class="btn bg-warning p-2 bd-highlight"><span data-feather="edit"></span>Edit</a>
+                        <a href="/dashboard/produk_jualan/{{$products->slug}}/edit" class="btn bg-warning p-2 bd-highlight"><span data-feather="edit"></span>Edit</a>
                         &nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="" class="btn bg-danger p-2 bd-highlight"><span data-feather="x-circle"></span>Delete</a>
+                    
+                        <form action="/dashboard/produk_jualan/{{$products->slug}}" method="post" class="d-inline">
+                            @method('delete')
+                            @csrf
+                            <button class="btn btn-danger" onclick="return confirm('Hapus Produk?')"><span data-feather="x-circle"></span>Delete</button>
+                        </form>
                     </div>
                     
                     

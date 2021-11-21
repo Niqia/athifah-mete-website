@@ -10,14 +10,12 @@ use App\Models\Kategori;
 class DatabaseSeeder extends Seeder
 {
     /**
-     * Seed the application's database.
+     * Run the database seeds.
      *
      * @return void
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
-
         User::create([
             'name' => 'Athifah Oleh-Oleh Khas Kendari',
             'username' => 'athifahmetekendari',
@@ -173,7 +171,5 @@ class DatabaseSeeder extends Seeder
             'harga' => '20.000',
             'deskripsi' => '<br><p>Komposisi : Kacang mete, kacang tanah, sereal jagung, dan coklat batang.</p><p>Ukuran lain yang tersedia dan harga masing-masing:</p><ul><li>- 200gr Rp 20.000,-</li><li>- 1 tempat Rp 50.000,-</li>',
         ]);
-
-        
     }
 }

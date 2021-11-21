@@ -13,7 +13,8 @@ class CreateProdukJualansTable extends Migration
      */
     public function up()
     {
-        Schema::create('produk_jualan', function (Blueprint $table) {
+
+        Schema::create('produk_jualans', function (Blueprint $table) {
             $table->id();
             $table->foreignId('kategori_id');
             $table->foreignId('user_id');
@@ -26,6 +27,8 @@ class CreateProdukJualansTable extends Migration
             $table->timestamp('posted_at')->nullable();
             $table->timestamps();
         });
+
+        
     }
 
     /**

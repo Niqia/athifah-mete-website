@@ -47,7 +47,9 @@ class DashboardProdukController extends Controller
             'nama_produk' => 'required|max:255',
             'slug' => 'required|unique:produk_jualans',
             'kategori_id' => 'required',
+            'ukuran' => 'nullable',
             'harga' => 'required',
+            'deskripsi' => 'nullable',
 
         ]);
 
@@ -56,7 +58,7 @@ class DashboardProdukController extends Controller
 
         produk_jualan::create($validateData);
 
-        return redirect('/dashboard/produk_jualan')->with('success', 'Produk telah ditambahkan!');
+        return redirect('/dashboard/produk_jualan')->with('success', 'Produk berhasil ditambahkan!');
     }
 
     /**
@@ -82,7 +84,10 @@ class DashboardProdukController extends Controller
      */
     public function edit(produk_jualan $produk_jualan)
     {
-        //
+        return view('dashboard\produk\edit', [
+            'product' => $produk_jualan,
+            'kategori' => Kategori::all()
+        ]);
     }
 
     /**
@@ -94,7 +99,29 @@ class DashboardProdukController extends Controller
      */
     public function update(Request $request, produk_jualan $produk_jualan)
     {
-        //
+        $rules = [
+            'nama_produk' => 'required|max:255',
+            'kategori_id' => 'required',
+            'ukuran' => 'nullable',
+            'harga' => 'required',
+            'deskripsi' => 'nullable',
+
+        ];
+
+        if($request->slug != $produk_jualan->slug){
+            $rules['slug'] = 'required|unique:produk_jualans';
+        }
+
+        $validatedData = $request->validate($rules);
+
+        $validatedData['user_id'] = auth()->user()->id;
+        $validatedData['excerpt'] = Str::limit(strip_tags($request->deskripsi), 100);
+
+        produk_jualan::where('id', $produk_jualan->id)
+        
+            ->update($validatedData);
+
+        return redirect('/dashboard/produk_jualan')->with('success', 'produk berhasil diubah!');
     }
 
     /**
@@ -105,7 +132,9 @@ class DashboardProdukController extends Controller
      */
     public function destroy(produk_jualan $produk_jualan)
     {
-        //
+        produk_jualan::destroy($produk_jualan->id);
+
+        return redirect('/dashboard/produk_jualan')->with('success', 'Produk berhasil dihapus!');
     }
 
     public function checkSlug(Request $request)
