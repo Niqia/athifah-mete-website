@@ -5,7 +5,9 @@
         <h2 class="h2">Tambah Produk</h2>
     </div>
 
-    <form method="post" action="/dashboard/produk_jualan">
+
+
+    <form method="post" action="/dashboard/produk_jualan" class="mb-5">
         @csrf
         <div class="mb-3 row">
             <label for="nama_produk" class="col-sm-2 col-form-label">Nama Produk</label>
@@ -23,7 +25,7 @@
         <div class="mb-3 row">
             <label for="slug" class="col-sm-2 col-form-label">Slug</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" name="slug" readonly required value="{{old('slug')}}"> 
+                <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" name="slug" required value="{{old('slug')}}"> 
                     @error('slug')
                         <div class="invalid-feedback">
                             {{$message}}
@@ -44,7 +46,7 @@
             <div class="col-sm-10" >
                 <select class="form-select" name="kategori_id">
                     @foreach ($kategori as $kategori)
-                        @if(old('kategori_id' == '$kategori->id' ))
+                        @if(old('kategori_id') == $kategori->id ))
                             <option value="{{$kategori->id}}" selected>{{$kategori->nama_kategori}}</option>
                         @else
                             <option value="{{$kategori->id}}">{{$kategori->nama_kategori}}</option>
@@ -80,7 +82,9 @@
             </div>
         </div>
 
-        <button type="submit" class="btn btn-primary">Tambah </button>
+        <div class="py-3 px-1" >
+            <button type="submit" class="btn btn-primary">Tambah </button>
+        </div>
     </form>
 
     <script>

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Str;
 use App\Models\produk_jualan;
 use App\Models\Kategori;
 use App\Models\User;
@@ -48,7 +48,15 @@ class DashboardProdukController extends Controller
             'slug' => 'required|unique:produk_jualans',
             'kategori_id' => 'required',
             'harga' => 'required',
+
         ]);
+
+        $validateData['user_id'] = auth()->user()->id;
+        $validateData['excerpt'] = Str::limit(strip_tags($request->deskripsi), 100);
+
+        produk_jualan::create($validateData);
+
+        return redirect('/dashboard/produk_jualan')->with('success', 'Produk telah ditambahkan!');
     }
 
     /**

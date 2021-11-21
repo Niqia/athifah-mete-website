@@ -14,6 +14,7 @@
                         <a href="" class="btn bg-danger p-2 bd-highlight"><span data-feather="x-circle"></span>Delete</a>
                     </div>
                     
+                    
 
                     <!-- Start Kolom Kanan -->
                     <div class="col-sm-6 align-self-center">

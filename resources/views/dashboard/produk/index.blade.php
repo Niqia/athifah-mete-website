@@ -5,6 +5,14 @@
         <h1 class="h2">Produk Athifah Oleh-Oleh Khas Kendari</h1>
     </div>
 
+    <hr>
+
+    @if(session()->has('success'))
+        <div class="alert alert-success" role="alert">
+            {{session('success')}}
+        </div>
+    @endif
+
     <div class="table-responsive">
 
         <a href="/dashboard/produk_jualan/create" class="btn btn-primary mb-4">Tambahkan Produk</a>
