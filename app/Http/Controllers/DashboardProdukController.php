@@ -1,7 +1,9 @@
 <?php
 
+
 namespace App\Http\Controllers;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 use App\Models\produk_jualan;
 use App\Models\Kategori;
 use App\Models\User;
@@ -43,20 +45,28 @@ class DashboardProdukController extends Controller
      */
     public function store(Request $request)
     {
-        $validateData = $request->validate([
+        // ddd($request); dump,die and debug
+
+
+        $validatedData = $request->validate([
             'nama_produk' => 'required|max:255',
             'slug' => 'required|unique:produk_jualans',
             'kategori_id' => 'required',
             'ukuran' => 'nullable',
             'harga' => 'required',
             'deskripsi' => 'nullable',
+            'image' => 'image',
 
         ]);
 
-        $validateData['user_id'] = auth()->user()->id;
-        $validateData['excerpt'] = Str::limit(strip_tags($request->deskripsi), 100);
+        if($request->file('image')){
+            $validatedData['image'] = $request->file('image')->store('produk-images');
+        }
 
-        produk_jualan::create($validateData);
+        $validatedData['user_id'] = auth()->user()->id;
+        $validatedData['excerpt'] = Str::limit(strip_tags($request->deskripsi), 100);
+
+        produk_jualan::create($validatedData);
 
         return redirect('/dashboard/produk_jualan')->with('success', 'Produk berhasil ditambahkan!');
     }
@@ -104,7 +114,9 @@ class DashboardProdukController extends Controller
             'kategori_id' => 'required',
             'ukuran' => 'nullable',
             'harga' => 'required',
+            'image' => 'image',
             'deskripsi' => 'nullable',
+            
 
         ];
 
@@ -114,8 +126,14 @@ class DashboardProdukController extends Controller
 
         $validatedData = $request->validate($rules);
 
+        if($request->file('image')){
+            if($request->oldImage){
+                Storage::delete($request->oldImage);
+            }
+            $validatedData['image'] = $request->file('image')->store('produk-images');
+        }
         $validatedData['user_id'] = auth()->user()->id;
-        $validatedData['excerpt'] = Str::limit(strip_tags($request->deskripsi), 100);
+        $validatedData['excerpt'] = Str::limit(strip_tags($request->deskripsi), 10);
 
         produk_jualan::where('id', $produk_jualan->id)
         
@@ -131,7 +149,11 @@ class DashboardProdukController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(produk_jualan $produk_jualan)
-    {
+    {   
+
+        if($produk_jualan->image){
+            Storage::delete($produk_jualan->image);
+        }
         produk_jualan::destroy($produk_jualan->id);
 
         return redirect('/dashboard/produk_jualan')->with('success', 'Produk berhasil dihapus!');

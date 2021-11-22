@@ -20,6 +20,7 @@ class CreateProdukJualansTable extends Migration
             $table->foreignId('user_id');
             $table->string('nama_produk');
             $table->string('slug')->unique();
+            $table->string('image')->nullable();
             $table->text('excerpt')->nullable();;
             $table->string('ukuran')->nullable();
             $table->string('harga');

@@ -41,7 +41,13 @@
                             <div class="item py-2">
                                 <div class="product" style="width: 210px;">
                                     <div class="d-flex justify-content-center align-items-center mb-3">
-                                        <a href="/detail-produk/{{$product->slug}}"><img src="{{ asset('img/athifah (1).jpg') }}" alt="" class="c-img img-fluid float-md-end"></a>
+                                        <a href="/detail-produk/{{$product->slug}}">
+                                            @if($product->image)
+                                                <img src="{{ asset('storage/' . $product->image) }}" alt="{{$product->slug}}" class="rounded mx-auto d-block c-img border-0 img-fluid">
+                                            @else
+                                                <img src="{{ asset('img/athifah (1).jpg') }}" alt="{{$product->slug}}" class="rounded mx-auto d-block c-img border-0 img-fluid">
+                                            @endif
+                                        </a>
                                     </div>
                                     <div class="desc" style="padding-left: 20px; padding-bottom: 1em; ">
                                         <div class="harga d-flex mb-3">
@@ -91,7 +97,13 @@
                         @if ($products->count())
                             <!-- Start Kolom Kanan -->
                             <div class="col-sm-6 align-self-center">
-                                <img src="{{ asset('img/athifah (1).jpg') }}" alt="" class="big-img img-fluid">
+                                <a href="/detail-produk/{{$products[0]->slug}}">
+                                    @if($products[0]->image)
+                                        <img src="{{ asset('storage/' . $products[0]->image) }}" alt="{{$products[0]->slug}}" class="big-img img-fluid">
+                                    @else
+                                        <img src="{{ asset('img/athifah (1).jpg') }}" alt="{{$products[0]->slug}}" class="big-img img-fluid">
+                                    @endif
+                                </a>
                             </div>
                             <!-- End Kolom Kanan -->
 
@@ -166,8 +178,14 @@
                         <div class="grid-item border {{ ($product['kategori_id'] === 1) ? 'makanan' : 'kerajinan' }}">
                             <div class="item py-2" style="width: 210px;">
                                 <!-- <div class="product"> -->
-                                    <div class="d-flex justify-content-center align-items-center mb-4">
-                                        <a href="/detail-produk/{{$product->slug}}"><img src="{{ asset('img/athifah (1).jpg') }}" alt="" class="c-img"></a>
+                                    <div class="d-flex justify-content-center align-items-center mb-4" style="width: 100%;">
+                                        <a href="/detail-produk/{{$product->slug}}">
+                                            @if($product->image)
+                                                <img src="{{ asset('storage/' . $product->image) }}" alt="{{$product->slug}}" class=" rounded mx-auto d-block c-img border-0 img-fluid">
+                                            @else
+                                                <img src="{{ asset('img/athifah (1).jpg') }}" alt="{{$product->slug}}" class="rounded mx-auto d-block c-img border-0 img-fluid">
+                                            @endif
+                                        </a>
                                     </div>
                                     <div class="desc" style="padding-left: 20px;">
                                         <div class="harga d-flex mb-4">

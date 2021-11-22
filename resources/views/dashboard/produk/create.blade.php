@@ -7,7 +7,7 @@
 
 
 
-    <form method="post" action="/dashboard/produk_jualan" class="mb-5">
+    <form method="post" action="/dashboard/produk_jualan" class="mb-5" enctype="multipart/form-data">
         @csrf
         <div class="mb-3 row">
             <label for="nama_produk" class="col-sm-2 col-form-label">Nama Produk</label>
@@ -59,7 +59,7 @@
         <div class="mb-3 row">
             <label for="harga" class="col-sm-2 col-form-label">Harga</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control @error('harga') is-invalid @enderror" id="harga" name="harga" value="{{old('harga')}}">
+                <input type="text" class="form-control @error('harga') is-invalid @enderror" id="harga" name="harga" required value="{{old('harga')}}">
                     @error('harga')
                         <div class="invalid-feedback">
                             {{$message}}
@@ -76,9 +76,10 @@
             </div>
         </div>
         <div class="mb-3 row">
-            <label for="" class="col-sm-2 col-form-label">Upload Gambar</label>
+            <label for="image" class="col-sm-2 col-form-label">Upload Gambar</label>
             <div class="col-sm-10">
-                <input class="form-control" type="file" id="formFileMultiple" multiple>
+                <img src="" alt="" class="img-preview img-fluid mb-3 col-sm-5 d-block">
+                <input class="form-control @error('image') is-invalid @enderror" type="file" id="image" multiple name="image" onchange="previewImage()">
             </div>
         </div>
 
@@ -101,6 +102,22 @@
         document.addEventListener('trix-file-accept', function(e){
             e.preventDefault();
         })
+
+        function previewImage(){
+            
+            const image = document.querySelector('#image');
+            const imgPreview = document.querySelector('.img-preview');
+
+            imgPreview.style.display = 'block';
+
+            const oFReader = new FileReader();
+            oFReader.readAsDataURL(image.files[0]);
+
+            oFReader.onload = function(oFREvent){
+                imgPreview.src = oFREvent.target.result;
+            }
+        }
+
 
     </script>
 

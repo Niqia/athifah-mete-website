@@ -8,7 +8,11 @@
                 <div class="row">
                     <!-- Start Kolom Kanan -->
                     <div class="col-sm-6 align-self-center">
-                        <img src="{{ asset('img/Comet 100gr .jpg') }}" alt="" class="big-img img-fluid">
+                        @if($products->image)
+                            <img src="{{ asset('storage/' . $products->image) }}" alt="{{$products->slug}}" class="big-img img-fluid">
+                        @else
+                            <img src="{{ asset('img/athifah (1).jpg') }}" alt="{{$products->slug}}" class="big-img img-fluid">
+                        @endif
                     </div>
                     <!-- End Kolom Kanan -->
 
