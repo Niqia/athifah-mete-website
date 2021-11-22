@@ -36,7 +36,8 @@ class ProdukController extends Controller
             "title" => "Home",
             "products" => produk_jualan::latest('id')->get(),
             "bestseller_products" => produk_jualan::with(['user', 'kategori'])->inRandomOrder()->limit(7)->get(),
-            "featured_products" => produk_jualan::with(['user', 'kategori'])->inRandomOrder()->limit(10)->get(),
+            "featured_products" => produk_jualan::with([ 'kategori'])->inRandomOrder()->limit(10)->get(),
+            "kategori" => Kategori::with(['products'])->get(),
         ]);
     }
 

@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardProdukController;
+use App\Http\Controllers\AdminKategoriController;
 use App\Models\Kategori;
 use App\Models\User;
 // use App\Models\produk_jualan;
@@ -58,6 +59,7 @@ Route::get('/dashboard', function () {
 
 Route::get('/dashboard/produk_jualan/checkSlug', [DashboardProdukController::class, 'checkSlug'])->middleware('auth');
 Route::resource('/dashboard/produk_jualan', DashboardProdukController::class)->middleware('auth');
+Route::resource('/dashboard/kategori', AdminKategoriController::class)->except('show')->middleware('auth');
 
 
 Route::get('/kontak-kami', function () {

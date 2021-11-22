@@ -169,13 +169,16 @@
                 <h3 class="text-center m-3" style="font-family: 'Calistoga', cursive; font: size 28px;">Produk Unggulan</h3>
                 <div id="filters" class="button-group">
                     <button class="btn is-checked" data-filter="*"> Semua Produk</button>
-                    <button class="btn" data-filter=".kerajinan"> Kerajinan </button>
-                    <button class="btn" data-filter=".makanan"> Makanan </button>
+                        @foreach($kategori as $k )
+                            <button class="btn" data-filter=".{{$k->slug}}"> {{$k->nama_kategori}} </button>
+                        @endforeach
+                    <!-- <button class="btn" data-filter=".kerajinan"> Kerajinan </button>
+                    <button class="btn" data-filter=".makanan"> Makanan </button> -->
                 </div>
 
                 <div class="grid">
                     @foreach($featured_products as $product )
-                        <div class="grid-item border {{ ($product['kategori_id'] === 1) ? 'makanan' : 'kerajinan' }}">
+                        <div class="grid-item border {{ ($product['kategori_id'] === 1) ? 'makanan-khas-sultra' : 'kerajinan-khas-sultra' }}">
                             <div class="item py-2" style="width: 210px;">
                                 <!-- <div class="product"> -->
                                     <div class="d-flex justify-content-center align-items-center mb-4" style="width: 100%;">

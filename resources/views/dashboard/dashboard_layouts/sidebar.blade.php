@@ -22,6 +22,19 @@
                     Website
                 </a>
             </li>
+
+            <h6 class="sidebar-heading d-flex justify-content-center align-items-center px-3 mt-4 mb-1">
+                <span>Administrator</span>
+            </h6>
+
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link {{Request::is('dashboard/kategori*') ? 'active' : ''}}" href="/dashboard/kategori">
+                        <span data-feather="list"></span>
+                            Kategori Produk
+                    </a>
+                </li>
+            </ul>
         
         </ul>
 
