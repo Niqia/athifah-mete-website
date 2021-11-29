@@ -14,9 +14,12 @@ class AdminKategoriController extends Controller
      */
     public function index()
     {
+
+        $this->authorize('admin');
         return view('dashboard.kategori.index_kategori', [
             'kategori' => Kategori::all()
         ]);
+
     }
 
     /**

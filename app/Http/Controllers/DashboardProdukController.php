@@ -19,10 +19,16 @@ class DashboardProdukController extends Controller
      */
     public function index()
     {
+
+        $products = produk_jualan::latest();
+        if(request('search')){
+            $products->where('nama_produk', 'like', '%' . request('search') . '%');
+        }
         
         return view('dashboard\produk\index', [
-            'products' => produk_jualan::where('user_id', auth()->user()->id)->get()
+            'products' => $products->where('user_id', auth()->user()->id)->get()
         ]);
+
     }
 
     /**

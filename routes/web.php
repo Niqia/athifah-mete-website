@@ -59,7 +59,7 @@ Route::get('/dashboard', function () {
 
 Route::get('/dashboard/produk_jualan/checkSlug', [DashboardProdukController::class, 'checkSlug'])->middleware('auth');
 Route::resource('/dashboard/produk_jualan', DashboardProdukController::class)->middleware('auth');
-Route::resource('/dashboard/kategori', AdminKategoriController::class)->except('show')->middleware('auth');
+Route::resource('/dashboard/kategori', AdminKategoriController::class)->except('show')->middleware('admin');
 
 
 Route::get('/kontak-kami', function () {
@@ -83,11 +83,13 @@ Route::get('/semua-produk?kategori={kategori:slug}', function(Kategori $kategori
 });
 
 Route::get('/posted-by/{user:name}', function(User $user){    
+    
     return view('pages\semua-produk', [
         'title' => 'Postingan Dari: '.$user->name,
         'products'=> $user->products,
         
     ]);
+
 });
 
 

@@ -15,6 +15,19 @@
 
         <a href="/dashboard/produk_jualan/create" class="btn btn-primary mb-4">Tambahkan Produk</a>
 
+        <form action="/dashboard/produk_jualan" class="d-flex">
+            @if (request('kategori'))
+                <input type="hidden" name="kategori" value="{{ request('kategori') }}">
+            @endif
+            @if (request('user'))
+                <input type="hidden" name="user" value="{{ request('user') }}">
+            @endif
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Cari" name="search" value="{{request('search')}}">
+                <button class="btn btn-outline-secondary" type="submit" style="background-color: #28AE3D; color: #fff">Search</button>
+            </div>
+        </form>
+
         <table class="table table-striped table-sm">
           <thead>
             <tr>
@@ -28,6 +41,7 @@
             </tr>
           </thead>
           <tbody>
+              @if($products->count())
                 @foreach ($products as $product)
                     <tr>
                         <td>{{$loop->iteration}}</td>
@@ -47,7 +61,12 @@
                         </td>
                     </tr>
                 @endforeach
+                @else
+                    <p>No product to show</p>
+                @endif
           </tbody>
         </table>
       </div>
+
+      
 @endsection
