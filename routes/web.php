@@ -28,13 +28,13 @@ use App\Models\User;
 Route::get('/', [ProdukController::class, 'home']);
 
 Route::get('/tentang-athifah-mete-kendari', function () {
-    return view('pages\tentang-kami', [
+    return view('pages.tentang-kami', [
         "title" => "Tentang Kami"
     ]);
 });
 
 Route::get('/cara-memesan', function () {
-    return view('pages\cara-memesan', [
+    return view('pages.cara-memesan', [
         "title" => "Cara Memesan"
     ]);
 });
@@ -51,7 +51,7 @@ Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
 
 Route::get('/dashboard', function () {
-    return view('dashboard\dashboard', [
+    return view('dashboard.dashboard', [
         "title" => "Dashboard",
     ]);
 })->middleware('auth');
@@ -63,20 +63,20 @@ Route::resource('/dashboard/kategori', AdminKategoriController::class)->except('
 
 
 Route::get('/kontak-kami', function () {
-    return view('pages\kontak-kami', [
+    return view('pages.kontak-kami', [
         "title" => "Kontak Kami",
     ]);
 });
 
 Route::get('/kategori', function(){
-    return view('pages\pilihan-kategori', [
+    return view('pages.pilihan-kategori', [
         'title' => 'Kategori Produk',
         'pilihanKategori'=> Kategori::all()
     ]);
 });
 
 Route::get('/semua-produk?kategori={kategori:slug}', function(Kategori $kategori){
-    return view('pages\semua-produk', [
+    return view('pages.semua-produk', [
         'title' => "Kategori Produk: ".$kategori->nama_kategori,
         'products'=> $kategori->products,
     ]);
@@ -84,7 +84,7 @@ Route::get('/semua-produk?kategori={kategori:slug}', function(Kategori $kategori
 
 Route::get('/posted-by/{user:name}', function(User $user){    
     
-    return view('pages\semua-produk', [
+    return view('pages.semua-produk', [
         'title' => 'Postingan Dari: '.$user->name,
         'products'=> $user->products,
         

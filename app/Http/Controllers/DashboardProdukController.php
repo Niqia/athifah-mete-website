@@ -38,7 +38,7 @@ class DashboardProdukController extends Controller
      */
     public function create()
     {
-        return view('dashboard\produk\create', [
+        return view('dashboard.produk.create', [
             'kategori' => Kategori::all()
         ]);
     }
@@ -85,7 +85,7 @@ class DashboardProdukController extends Controller
      */
     public function show(produk_jualan $produk_jualan)
     {
-        return view('dashboard\produk\show', [
+        return view('dashboard.produk.show', [
             'products' => $produk_jualan,
         ]);
         
@@ -100,7 +100,7 @@ class DashboardProdukController extends Controller
      */
     public function edit(produk_jualan $produk_jualan)
     {
-        return view('dashboard\produk\edit', [
+        return view('dashboard.produk.edit', [
             'product' => $produk_jualan,
             'kategori' => Kategori::all()
         ]);
